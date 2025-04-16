@@ -1,3 +1,7 @@
+*** 持续更新！ ***
+
+# 记录一下难点亮点
+
 classnames库，可以在css模块化的基础上，添加额外的classname，不影响原本的classname；
 ``` javascript
 //原本添加新的classname不方便。
