@@ -1,0 +1,30 @@
+{
+  "id": "4888477",
+  "name": "no name",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "4236649",
+      "name": "旋转",
+      "font_class": "xuanzhuan",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
+      "icon_id": "5387394",
+      "name": "文本",
+      "font_class": "wenben",
+      "unicode": "eac5",
+      "unicode_decimal": 60101
+    },
+    {
+      "icon_id": "9384068",
+      "name": "话筒",
+      "font_class": "huatong",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    }
+  ]
+}

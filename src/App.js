@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./layout/Header";
+import styles from "./App.less";
+import Left from "./layout/Left";
+import Center from "./layout/Center";
+import Right from "./layout/Right";
+import useCanvas from "./store/hooks";
+import { CanvasContext } from "./context";
+import { useEffect, useReducer } from "react";
+function App(props) {
+  const canvas = useCanvas();//创建一个canvas，也可在这里传入一个canvas初始化。
+  const [,forceUpdate]=useReducer(x=>x+1,0);//创建forceUpdate函数。
 
-function App() {
+  useEffect(()=>{
+    const unSubscribe=canvas.subscribe(()=>{
+      forceUpdate();
+    });
+    return ()=>{//组件卸载前取消订阅。
+      unSubscribe();
+    };
+  },[]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    // less导入模块化
+    <div className={styles.main}>
+      <CanvasContext.Provider value={canvas}>
+        <Header />
+        <div className={styles.content}>
+          <Left></Left>
+          <Center></Center>
+          <Right></Right>
+        </div>
+      </CanvasContext.Provider>
     </div>
   );
 }
