@@ -5,7 +5,7 @@ const defaultCanvas = {
     style: {
       width: 320,
       height: 568,
-      backgroundColor: "#ffffff",
+      backgroundColor: "#ffffffff",
       backgroundImage: "",
       backgroundPosition: "center",
       backgroundSize: "cover",

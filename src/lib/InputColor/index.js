@@ -3,6 +3,7 @@ import {SketchPicker} from "react-color";
 
 export default function InputColor({onChangeComplete, color, ...rest}) {
   const [visible, setVisible] = useState(false);
+  
   return (
     <div
       style={{
@@ -37,7 +38,13 @@ export default function InputColor({onChangeComplete, color, ...rest}) {
             }}>
             关闭
           </span>
-          <SketchPicker color={color} onChangeComplete={onChangeComplete} />
+          <SketchPicker color={color} onChangeComplete={onChangeComplete} styles={{
+        default: {
+          picker: {
+            width: '320px', //设置整体宽度
+          },
+        },
+      }}/>
         </div>
       )}
     </div>

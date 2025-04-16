@@ -11,7 +11,6 @@ function EditCmp(props) {
 
   const handleStyleChange = (e, { name, value }) => {
     const newStyle = { [name]: value };
-
     canvas.updateSelectedCmp(newStyle);
   };
 

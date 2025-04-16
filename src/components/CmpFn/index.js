@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styles from "./index.less";
 import classNames from "classnames";
 import { useCanvasByContext } from "../../store/hooks";
@@ -29,7 +29,6 @@ function Cmp({ cmp, selected, index }) {
 
     if (canvas.getSelectedCmpIndex() === index) {
       canvas.setSelectedCmpIndex(-1);
-      console.log(canvas.selectedCmpIndex + "selected");
     } else {
       canvas.setSelectedCmpIndex(index);
     }

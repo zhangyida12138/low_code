@@ -30,11 +30,11 @@ code {
 
 select,
 input {
-  min-width: 80px;
-  min-height: 28px;
+  min-width: 35px;
+  min-height: 20px;
   line-height: 28px;
   border: solid 1px #eee;
-  padding: 0 6px;
+  padding: 0 3px;
 }
 
 input,
