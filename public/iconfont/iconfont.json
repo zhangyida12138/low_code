@@ -6,6 +6,125 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "658956",
+      "name": "图片",
+      "font_class": "tupian",
+      "unicode": "e67f",
+      "unicode_decimal": 59007
+    },
+    {
+      "icon_id": "908598",
+      "name": "选择",
+      "font_class": "xuanze",
+      "unicode": "e6ac",
+      "unicode_decimal": 59052
+    },
+    {
+      "icon_id": "1177735",
+      "name": "书",
+      "font_class": "shu",
+      "unicode": "e633",
+      "unicode_decimal": 58931
+    },
+    {
+      "icon_id": "1766470",
+      "name": "符号-按钮",
+      "font_class": "anniu",
+      "unicode": "e690",
+      "unicode_decimal": 59024
+    },
+    {
+      "icon_id": "4890400",
+      "name": "旋转",
+      "font_class": "xuanzhuan1",
+      "unicode": "e6ef",
+      "unicode_decimal": 59119
+    },
+    {
+      "icon_id": "4986151",
+      "name": "返回",
+      "font_class": "fanhui",
+      "unicode": "e70b",
+      "unicode_decimal": 59147
+    },
+    {
+      "icon_id": "5387673",
+      "name": "云下载",
+      "font_class": "yunxiazai",
+      "unicode": "eb2c",
+      "unicode_decimal": 60204
+    },
+    {
+      "icon_id": "5399558",
+      "name": "保存",
+      "font_class": "baocun",
+      "unicode": "e936",
+      "unicode_decimal": 59702
+    },
+    {
+      "icon_id": "5517432",
+      "name": "loading",
+      "font_class": "loading",
+      "unicode": "e962",
+      "unicode_decimal": 59746
+    },
+    {
+      "icon_id": "6151430",
+      "name": "画布",
+      "font_class": "huabu",
+      "unicode": "e6a1",
+      "unicode_decimal": 59041
+    },
+    {
+      "icon_id": "6219264",
+      "name": "清空",
+      "font_class": "qingkong",
+      "unicode": "e946",
+      "unicode_decimal": 59718
+    },
+    {
+      "icon_id": "7226227",
+      "name": "发布",
+      "font_class": "fabu",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "17385079",
+      "name": "close",
+      "font_class": "close",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    },
+    {
+      "icon_id": "18446819",
+      "name": "无穷大",
+      "font_class": "wuqiongda",
+      "unicode": "e674",
+      "unicode_decimal": 58996
+    },
+    {
+      "icon_id": "19652319",
+      "name": "文本",
+      "font_class": "wenben1",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "29522688",
+      "name": "20J语音转文字",
+      "font_class": "a-20Jyuyinzhuanwenzi",
+      "unicode": "e682",
+      "unicode_decimal": 59010
+    },
+    {
+      "icon_id": "38441588",
+      "name": "属性",
+      "font_class": "shuxing",
+      "unicode": "e7a5",
+      "unicode_decimal": 59301
+    },
+    {
       "icon_id": "4236649",
       "name": "旋转",
       "font_class": "xuanzhuan",

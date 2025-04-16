@@ -67,7 +67,7 @@ const defaultCanvas = {
   setSelectedCmpIndex=(index)=>{
     if(index!==this.selectedCmpIndex){//选中不同的组件才要更新
       this.selectedCmpIndex=index;
-      //选中组件以后要加边框，所以需要更新；
+      //选中组件以后要加边框，所以需要更新；  
       this.updateApp();
     }
   }
@@ -131,7 +131,16 @@ const defaultCanvas = {
   //set
   setCanvas=(_canvas)=>{
     Object.assign(this.canvas,_canvas);//因为这个类的状态时放在ref.current中的,使用assign可以复用这个对象，保持原本地址不变，配合ref能保持响应性。
+    this.updateApp();
   }
+
+  //删除元素
+  deleteCanvasCmp=(index)=>{
+    if(index>=this.getCanvasCmps().length) return 
+    this.cmps.splice(index,1);
+    this.updateApp();
+  }
+
 //
 //抽象封装，权限隔离或接口隔离
 //只读预览模式
@@ -145,6 +154,7 @@ const defaultCanvas = {
       setSelectedCmpIndex:this.setSelectedCmpIndex,
       updateSelectedCmp:this.updateSelectedCmp,
       updateCanvasStyle:this.updateCanvasStyle,
+      deleteCanvasCmp:this.deleteCanvasCmp,
       subscribe:this.subscribe,
     }
     return obj;

@@ -1,8 +1,8 @@
 import React from 'react'
-import styles from './index.less'
-import { useCanvasByContext } from '../../store/hooks';
-import { isImgComponent } from '../../layout/Left';
-import {defaultCommonStyle} from '../../utils/const'
+import styles from '../index.less'
+import { useCanvasByContext } from '../../../store/hooks';
+import { isImgComponent } from '../../../layout/Left';
+import {defaultCommonStyle} from '../../../utils/const'
 const defaultStyle = {
 ...defaultCommonStyle,
 // height:"auto",

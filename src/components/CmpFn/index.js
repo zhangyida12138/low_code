@@ -75,7 +75,7 @@ function Cmp({ cmp, selected, index }) {
         let newFontSize=n*cmp.style.fontSize;
         newFontSize=newFontSize<12 ?12:newFontSize>130?130:newFontSize;//避免字体太小或者太大。
         Object.assign(newStyle, {
-          fontSize:newFontSize,
+          fontSize:parseInt(newFontSize),
           lineHeight: newHeight+'px',
         });
       }
@@ -115,7 +115,7 @@ function Cmp({ cmp, selected, index }) {
       let disY=y-startY;
 
       let deg=(360*Math.atan2(disY,disX))/(2*Math.PI)-90;
-      deg=deg.toFixed(2);
+      deg=parseInt(deg);
 
       canvas.updateSelectedCmp({transform:deg});
     }
@@ -142,7 +142,10 @@ function Cmp({ cmp, selected, index }) {
       }}
     >
       {/* 组件本身 */}
-      <div className={styles.cmp} style={{ ...style, transform }}>
+      <div className={classNames(
+          styles.cmp,
+          selected ? styles.selected : styles.unselected
+        )} style={{ ...style, transform }}>
         {setCmp(cmp)}
       </div>
       {/* 组件的功能，选中的样式 */}
@@ -237,11 +240,12 @@ function Cmp({ cmp, selected, index }) {
 }
 
 function setCmp(cmp) {
+  const { key, ...safeProps } = cmp;
   switch (cmp.type) {
     case isImgComponent:
-      return <Img {...cmp} />;
+      return <Img {...safeProps} />;
     case isTextComponent:
-      return <Text {...cmp} />;
+      return <Text {...safeProps} />;
     default:
       break;
   }

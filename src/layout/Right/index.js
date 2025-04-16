@@ -7,7 +7,7 @@ function Right() {
   const canvas=useCanvasByContext();
   const selectedCmp=canvas.getSelectedCmp();
   return (
-    <div className={styles.main}>
+    <div className={styles.main} id='right'>
       {selectedCmp?<EditCmp/>:<EditCanvas/>}
     </div>
   )
