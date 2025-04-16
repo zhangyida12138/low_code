@@ -7,6 +7,8 @@ function EditCanvas() {
   const canvas=useCanvasByContext();
   const style= canvas.getCanvas().style;
 
+
+
   const handleStyleChange=(e,{name,value})=>{//用于修改属性的值
     canvas.updateCanvasStyle({[name]:value})
   };
@@ -25,7 +27,7 @@ function EditCanvas() {
 
       <Item label='背景颜色:'>
         {/* 第三方库，用于显示颜色 */}
-        <InputColor className={styles.itemRight} color={style.backgroundColor} onChangeComplete={(e)=>{handleStyleChange(e,{name:'backgroundColor',value:e.hex})}}/>
+        <InputColor className={styles.itemRight} color={style.backgroundColor} onChangeComplete={(e)=>{handleStyleChange(e,{name:'backgroundColor',value:`rgba(${e.rgb.r}, ${e.rgb.g}, ${e.rgb.b}, ${e.rgb.a})`})}}/>
       </Item>
 
       <Item label='背景图片:'>

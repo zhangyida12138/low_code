@@ -5,7 +5,7 @@ const defaultCanvas = {
     style: {
       width: 320,
       height: 568,
-      backgroundColor: "#ffffffff",
+      backgroundColor: "#ffffffff",//使用rgba
       backgroundImage: "",
       backgroundPosition: "center",
       backgroundSize: "cover",

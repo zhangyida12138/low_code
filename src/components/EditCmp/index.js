@@ -169,7 +169,7 @@ function EditCmp(props) {
           className={styles.itemRight}
           color={style.borderColor || "#ffffff00"}
           onChangeComplete={(e) =>
-            handleStyleChange(null, {name: "borderColor", value: e.hex})
+            handleStyleChange(null, {name: "borderColor", value: `rgba(${e.rgb.r}, ${e.rgb.g}, ${e.rgb.b}, ${e.rgb.a})`})
           }
         />
       </Item>
@@ -180,7 +180,7 @@ function EditCmp(props) {
             className={styles.itemRight}
             color={style.color}
             onChangeComplete={(e) =>
-              handleStyleChange(null, {name: "color", value: e.hex})
+              handleStyleChange(null, {name: "color", value: `rgba(${e.rgb.r}, ${e.rgb.g}, ${e.rgb.b}, ${e.rgb.a})`})
             }
           />
         </Item>
@@ -192,7 +192,7 @@ function EditCmp(props) {
             className={styles.itemRight}
             color={style.backgroundColor}
             onChangeComplete={(e) =>
-              handleStyleChange(null, {name: "backgroundColor", value: e.hex})
+              handleStyleChange(null, {name: "backgroundColor", value: `rgba(${e.rgb.r}, ${e.rgb.g}, ${e.rgb.b}, ${e.rgb.a})`})
             }
           />
         </Item>
