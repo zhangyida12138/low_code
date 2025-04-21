@@ -3,7 +3,7 @@ import styles from "./index.less";
 import Item from "../../lib/Item";
 import { useCanvasByContext } from "../../store/hooks";
 import InputColor from "../../lib/InputColor";
-
+import classNames from "classnames";
 function EditCmp(props) {
   const canvas = useCanvasByContext();
   const selectedCmp = canvas.getSelectedCmp();
@@ -12,16 +12,18 @@ function EditCmp(props) {
   const handleStyleChange = (e, { name, value }) => {
     const newStyle = { [name]: value };
     canvas.updateSelectedCmp(newStyle);
+    canvas.recordCanvasChangeHistory();
   };
 
   const handleValueChange = (e) => {
     const newValue = e.target.value;
     canvas.updateSelectedCmp(null, newValue);
+    canvas.recordCanvasChangeHistory();
   };
 
   return (
     <div className={styles.main}>
-      <div className={styles.title}>组件属性</div>
+      <div className={styles.title}><span className={classNames("iconfont icon-wenben1",styles.icon)}></span>组件属性</div>
       <Item label="描述:">
         <input
           type="text"

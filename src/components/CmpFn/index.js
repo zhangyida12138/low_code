@@ -8,6 +8,7 @@ import Img from "../Img";
 import Text from "../Text";
 import ContextMenu from "./ContextMenu";
 
+
 //Todo 拖拽，删除，改变层级关系等
 function Cmp({ cmp, selected, index, zoom }) {
   const { style, value } = cmp; //从每个cmp中解构出style和内容。
@@ -20,7 +21,7 @@ function Cmp({ cmp, selected, index, zoom }) {
     e.preventDefault(); //防止默认右键的菜单栏
     e.stopPropagation();
     setMenuShow(true);
-    console.log(e);
+
   };
   // 监听移动的位置
   const onMouseDownCmp = (e) => {
@@ -70,6 +71,7 @@ function Cmp({ cmp, selected, index, zoom }) {
     const up = () => {
       document.removeEventListener("mousemove", move);
       document.removeEventListener("mouseup", up);
+      canvas.recordCanvasChangeHistory();
     };
     document.addEventListener("mousemove", move);
     document.addEventListener("mouseup", up);
@@ -170,6 +172,7 @@ function Cmp({ cmp, selected, index, zoom }) {
     const up = () => {
       document.removeEventListener("mousemove", move);
       document.removeEventListener("mouseup", up);
+      canvas.recordCanvasChangeHistory();
     };
     document.addEventListener("mousemove", move);
     document.addEventListener("mouseup", up);
@@ -345,6 +348,8 @@ function Cmp({ cmp, selected, index, zoom }) {
             left: style.left + width / 2,
             transform: `scale(${100 / zoom})`,
           }}
+          cmp={cmp}
+          index={index}
         />
       )}
     </div>

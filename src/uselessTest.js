@@ -1,14 +1,19 @@
-function _sort(array) {
-    for(let i=0;i<array.length;i++){
-     for(let j=0;j<i;j++){
-         if(array[i]>array[j]){
-             let temp=array[i];
-             array[i]=array[j];
-             array[j]=array[i];
-         }
-     }
-    }
-    
+function deepClone(obj){
+    return JSON.parse(JSON.stringify(obj));
 }
-
-console.log(_sort([1,2,3]));
+const obj1={
+    name:undefined,
+    age:null,
+    a:{
+        name:undefined,
+        age:null,
+        b:{
+            c:()=>{
+                console.log(123);
+                
+            }
+        }
+    }
+}
+let obj2=deepClone(obj1);
+console.log(obj2);

@@ -6,6 +6,20 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "44099850",
+      "name": "undo",
+      "font_class": "undo",
+      "unicode": "eb2d",
+      "unicode_decimal": 60205
+    },
+    {
+      "icon_id": "9295573",
+      "name": "下一步",
+      "font_class": "xiayibu",
+      "unicode": "e7f4",
+      "unicode_decimal": 59380
+    },
+    {
       "icon_id": "658956",
       "name": "图片",
       "font_class": "tupian",

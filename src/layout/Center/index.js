@@ -114,6 +114,7 @@ function Center() {
         break;
     }
     canvas.updateSelectedCmp(newStyle);
+    canvas.recordCanvasChangeHistory();
   };
 
   return (
