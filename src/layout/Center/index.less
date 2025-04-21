@@ -10,6 +10,8 @@
   // background-color: rgba(240, 243, 247, 1);
 
   .canvas {
+    margin-left: 80px;
+    margin-right: 350px;
     position: relative;
     border: solid 1px #dddddd;
     box-shadow: #ccc 1px 1px 20px;
@@ -20,7 +22,7 @@
     @size: 30px;
 
     position: fixed;
-    right: 400px;
+    right: 360px;
     bottom: 20px;
 
     display: flex;
@@ -43,9 +45,12 @@
       font-size: 12px;
       input {
         display: inline-block;
-        width: 50px;
+        width: 40px;
         border: none;
         text-align: center;
+        &:focus {
+          border: solid 1px;
+        }
       }
     }
   }

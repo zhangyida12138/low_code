@@ -350,6 +350,7 @@ function Cmp({ cmp, selected, index, zoom }) {
           }}
           cmp={cmp}
           index={index}
+          setMenuShow={()=>{setMenuShow(false)}}//传入一个回调，让子组件清空状态
         />
       )}
     </div>
