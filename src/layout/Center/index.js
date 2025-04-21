@@ -7,7 +7,7 @@ function Center() {
   const canvas = useCanvasByContext();
 
   const canvasData = useCanvasData(); //自定义的钩子函数，从context中获取数据，并提取出来。
-  const { cmps } = canvasData;
+  const { cmps,style } = canvasData;
 
   // 定义缩放比例
   const [zoom, setZoom] = useState(() =>
@@ -19,23 +19,50 @@ function Center() {
     const endX = e.pageX;
     const endY = e.pageY;
 
-    //接受数据
-    const start = e.dataTransfer.getData("Text").split(",");
+    let cmp=e.dataTransfer.getData('drag-cmp');//获取拖拽得到的事件数据。
 
-    //获取移动距离
-    const disX = endX - start[0];
-    const disY = endY - start[1];
+    if(!cmp) {//如果没有数据，就退出。
+      return ;
+    }
+    
+    cmp=JSON.parse(cmp);
+    
+    const DOMCanvasPos={//用于找到canvas左上角定点对于页面原点的位置
+      top:'110',//header的50px+canvas的padding-top的50px,
+      left:document.body.clientWidth/2-(style.width/2)*(zoom/100),//因为canvas是居中的，找到中点，减去一半的宽度，要考虑缩放的问题
+    };
 
-    const selectedCmp = canvas.getSelectedCmp(); //获取选中组件
-    // if (!selectedCmp) return;
+    const startX=DOMCanvasPos.left;
+    const startY=DOMCanvasPos.top;
+    
+    // 假设拖拽的是中心点
+    let disX=endX-startX;
+    let disY=endY-startY;//计算出偏移量
+    
+    //根据缩放比例修正偏移量
+    disX=disX*(100/zoom)-(cmp.style.width/2);
+    disY=disY*(100/zoom)-(cmp.style.height/2);
 
-    const oldStyle = selectedCmp.style; //计算出组件后面的位置
+    //要计算是否出了画布的范围,如果出了范围就设置为最大范围，因为拖拽的算是中心点
+    if(disX>(style.width-cmp.style.width)){
+      disX=style.width-cmp.style.width;
+    }else if(disX<0){
+      disX=0;
+    }
+    if(disY>(style.height-cmp.style.height)){
+      disY=style.height-cmp.style.height;
+    }else if(disY<0){
+      disY=0;
+    }
 
-    const top = oldStyle.top + disY;
-    const left = oldStyle.left + disX;
+    
+    //计算出最后的位置
+    cmp.style.top=disY;
+    cmp.style.left=disX;
+    //更新
+    canvas.addCmp(cmp);
 
-    canvas.updateSelectedCmp({ top, left }); //更新组件的位置
-  }, []); //缓存函数
+  }, [zoom,style.width]); //缓存函数
 
   const allowDrop = useCallback((e) => {
     e.preventDefault();
@@ -110,7 +137,7 @@ function Center() {
           backgroundImage: `url(${canvasData.style.backgroundImage})`,
           transform: `scale(${zoom / 100})`,
         }} //图片属性得单独处理加上url
-        onDrop={onDrop}
+        onDrop={onDrop}//松手添加组件
         onDragOver={allowDrop}
       >
         {cmps.map((cmp, index) => (
@@ -120,6 +147,7 @@ function Center() {
             cmp={cmp}
             selected={selectedId === index}
             index={index}
+            zoom={zoom}
           />
         ))}
       </div>

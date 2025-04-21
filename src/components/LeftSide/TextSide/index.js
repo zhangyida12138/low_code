@@ -1,8 +1,8 @@
-import React from 'react'
-import styles from '../index.less'
-import { useCanvasByContext } from '../../../store/hooks';
-import {isTextComponent} from '../../../layout/Left'
-import { defaultCommonStyle } from '../../../utils/const';
+import React from "react";
+import styles from "../index.less";
+import { useCanvasByContext } from "../../../store/hooks";
+import { isTextComponent } from "../../../layout/Left";
+import { defaultCommonStyle } from "../../../utils/const";
 const defaultStyle = {
   ...defaultCommonStyle,
   height: 30,
@@ -31,19 +31,35 @@ const settings = [
 ];
 
 function TextSide() {
-  const canvas=useCanvasByContext();
-  const addCmp=(cmp)=>{
+  const canvas = useCanvasByContext();
+  const addCmp = (cmp) => {
     canvas.addCmp(cmp);
     // console.log(canvas);
-    
+  };
+
+  const onDragStart=(e,_cmp)=>{
+    e.dataTransfer.setData('drag-cmp',JSON.stringify(_cmp));//事件通信
   }
+
   return (
     <div className={styles.main}>
       <ul className={styles.box}>
-        {settings.map(item=><li key={item.value} className={styles.item} onClick={()=>addCmp({...item,type:isTextComponent})}>{item.value}</li>)}
+        {settings.map((item) => (
+          <li
+            key={item.value}
+            className={styles.item}
+            onClick={() => addCmp({ ...item, type: isTextComponent })}
+            draggable="true"
+            onDragStart={(e) => {
+              onDragStart(e, { ...item, type: isTextComponent });
+            }}
+          >
+            {item.value}
+          </li>
+        ))}
       </ul>
     </div>
-  )
+  );
 }
 
-export default TextSide
+export default TextSide;

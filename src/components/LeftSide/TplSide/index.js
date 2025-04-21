@@ -1,7 +1,6 @@
 import React from "react";
 import { useCanvasByContext } from "../../../store/hooks";
 import styles from "../index.less";
-
 const settings = [
   {
     key: 0,

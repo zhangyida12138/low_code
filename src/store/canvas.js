@@ -11,6 +11,7 @@ const defaultCanvas = {
       backgroundSize: "cover",
       backgroundRepeat: "no-repeat",
       boxSizing: "content-box",
+      transform:"50% 0"
     },
     // 组件
     cmps: [],
